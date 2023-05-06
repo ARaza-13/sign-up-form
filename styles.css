@@ -1,6 +1,8 @@
 :root {
     --left: 30vw;
     --right: 70vw;
+    --odin-color: beige;
+    --button-color: #596d48
 }
 
 @font-face {
@@ -14,16 +16,19 @@
     box-sizing: border-box;
 }
 
+/* structure overall webpage */
 .content {
     display: flex;
     min-height: 100vh;
+    font-family: sans-serif;
 }
 
+/* start of left side of webpage */
 .side-content {
     background-image: url(images/background-image.jpg);
     background-size: cover;
     min-width: var(--left);
-    color: white;
+    color: var(--odin-color);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -38,7 +43,7 @@
     align-items: center;
     gap: 0.2vw;
     position: relative;
-    top: 20vh;
+    top: 22vh;
     padding: 16px 0px;
 }
 
@@ -52,9 +57,84 @@ img {
 }
 
 .image-credit > a {
-    color: white;
+    color: var(--odin-color);;
 }
+/* start of left side of webpage */
 
+/* start of right side of webpage */
 .form-content {
     min-width: var(--right);
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+}
+
+.form-content > * {
+    padding-left: 3vw;
+}
+
+/* heading */
+.heading {
+    width: 80%;
+}
+
+.heading > h2:last-child {
+    margin: 40px 0 80px;
+}
+
+/* form content */
+.form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.form > h2 {
+    width: 100%;
+}
+
+.input {
+    display: flex;
+    flex-flow: column wrap;
+    width: 40%;
+}
+
+input {
+    padding: 5px 10px;
+    border-radius: 5px;
+    outline-color: blue;
+    border: 1px solid;
+    font-size: 1rem;
+    margin-right: 32px;
+}
+
+label {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.8rem;
+    margin-bottom: 2px;
+}
+
+/* button and login*/
+button {
+    background-color: var(--button-color);
+    color: var(--odin-color);
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 10px 40px;
+    margin: 30px 0;
+    border: none;
+    border-radius: 5px;
+}
+
+.log-in {
+    display: flex;
+    gap: 5px;
+}
+
+.log-in > a {
+    text-decoration: none;
+    color: var(--button-color);
 }
