@@ -79,7 +79,7 @@ img {
 }
 
 .heading > h2:last-child {
-    margin: 40px 0 80px;
+    margin: 40px 0 60px;
 }
 
 /* form content */
@@ -99,15 +99,31 @@ img {
     display: flex;
     flex-flow: column wrap;
     width: 40%;
+    position: relative;
 }
 
 input {
     padding: 5px 10px;
     border-radius: 5px;
-    outline-color: blue;
     border: 1px solid;
     font-size: 1rem;
     margin-right: 32px;
+}
+
+input:focus {
+    outline: none;
+    border-color: blue;
+}
+
+.error, .error:focus {
+    border-color: red;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.7rem;
+    position: absolute;
+    bottom: -15px;
 }
 
 label {
@@ -127,6 +143,7 @@ button {
     margin: 30px 0;
     border: none;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .log-in {
