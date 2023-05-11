@@ -1,4 +1,3 @@
-// confirm if password matches //
 const password = document.querySelector('input[name=password]');
 const confirmPassword = document.querySelector('input[name=confirm-password]');
 const errorMessage = document.querySelector('.error-message');
@@ -6,6 +5,7 @@ const errorMessage = document.querySelector('.error-message');
 password.oninput = () => checkPassword();
 confirmPassword.oninput = () => checkPassword();
 
+// confirm if password matches //
 function checkPassword() {
     if (password.value != confirmPassword.value) {
         password.classList.add("error");

@@ -154,4 +154,5 @@ button {
 .log-in > a {
     text-decoration: none;
     color: var(--button-color);
+    font-weight: 600;
 }
