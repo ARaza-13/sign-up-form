@@ -1,6 +1,6 @@
 const password = document.querySelector('input[name=password]');
 const confirmPassword = document.querySelector('input[name=confirm-password]');
-const errorMessage = document.querySelector('.error-message');
+const errorMessage = document.getElementById('confirm-password-error');
 
 password.oninput = () => checkPassword();
 confirmPassword.oninput = () => checkPassword();
