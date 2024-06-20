@@ -29,7 +29,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (validity.valueMissing) {
             errorMessage = 'This field is required';
+        } else if (validity.patternMismatch) {
+            if (field.id === 'phone') {
+                errorMessage = 'Enter a valid phone number (xxx-xxx-xxxx).';
+            }
         }
+
         return errorMessage;
     }
 });
