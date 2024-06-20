@@ -115,11 +115,11 @@ input:focus {
     border-color: blue;
 }
 
-.error, .error:focus {
+.invalid, .invalid:focus {
     border-color: red;
 }
 
-.error-message {
+.error {
     color: red;
     font-size: 0.7rem;
     position: absolute;

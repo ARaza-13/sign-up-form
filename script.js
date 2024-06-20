@@ -17,9 +17,20 @@ document.addEventListener('DOMContentLoaded', function () {
             return true;
          } else {
             field.classList.add('invalid');
-            errorElement.textContent = 'ERROR';
+            errorElement.textContent = getErrorMessage(field);
             return false;
          }
+    }
+
+    function getErrorMessage(field) {
+        const validity = field.validity;
+        let errorMessage = '';
+        console.log(validity);
+
+        if (validity.valueMissing) {
+            errorMessage = 'This field is required';
+        }
+        return errorMessage;
     }
 });
 
@@ -33,12 +44,12 @@ confirmPassword.oninput = () => checkPassword();
 // confirm if password matches //
 function checkPassword() {
     if (password.value != confirmPassword.value) {
-        password.classList.add("error");
-        confirmPassword.classList.add("error");
+        password.classList.add("invalid");
+        confirmPassword.classList.add("invalid");
         errorMessage.textContent = "*Passwords do not match";
     } else {
-        password.classList.remove("error");
-        confirmPassword.classList.remove("error");
+        password.classList.remove("invalid");
+        confirmPassword.classList.remove("invalid");
         errorMessage.textContent = "";
     }
 }
