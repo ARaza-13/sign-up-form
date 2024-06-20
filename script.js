@@ -10,7 +10,16 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     function validateField(field) {
-        console.log(field);
+        const errorElement = document.getElementById(field.id + '-error');
+         if (field.validity.valid) {
+            field.classList.remove('invalid');
+            errorElement.textContent = '';
+            return true;
+         } else {
+            field.classList.add('invalid');
+            errorElement.textContent = 'ERROR';
+            return false;
+         }
     }
 });
 
