@@ -33,6 +33,14 @@ document.addEventListener('DOMContentLoaded', function () {
             if (field.id === 'phone') {
                 errorMessage = 'Enter a valid phone number (xxx-xxx-xxxx).';
             }
+        } else if (validity.typeMismatch) {
+            if (field.type === 'email') {
+                errorMessage = 'Enter a valid email address.'
+            }
+        } else if (validity.tooShort) {
+            if (field.type === 'email') {
+                errorMessage = `Email should be at least ${field.minLength} characters. You entered ${field.value.length}.`
+            }
         }
 
         return errorMessage;
