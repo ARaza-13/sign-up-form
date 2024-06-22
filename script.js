@@ -1,17 +1,24 @@
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('sign-up-form');
 
+    const passwordField = document.getElementById('password');
+    passwordField.addEventListener('input', function () {
+        validateField(passwordField);
+        validateField(document.getElementById('confirm-password'));
+    });
+
     // check if the form field is valid whenever the user types something
     form.addEventListener('input', function (event) {
         const target = event.target;
-        if (target.tagName === 'INPUT') {
+        if (target.tagName === 'INPUT' && target.id !== 'password') {
             validateField(target);
         }
     });
 
     function validateField(field) {
         const errorElement = document.getElementById(field.id + '-error');
-         if (field.validity.valid) {
+         if (field.validity.valid && !(
+        (field.id === 'confirm-password' && field.value !== document.getElementById('password').value))) {
             field.classList.remove('invalid');
             errorElement.textContent = '';
             return true;
@@ -43,6 +50,10 @@ document.addEventListener('DOMContentLoaded', function () {
             if (field.type === 'email') {
                 errorMessage = `Email should be at least ${field.minLength} characters. You entered ${field.value.length}.`
             }
+        } else if (field.id === 'confirm-password') {
+            if (field.value !== document.getElementById('password').value) {
+                errorMessage = 'Passwords do not match.'
+            }
         }
 
         return errorMessage;
@@ -71,23 +82,3 @@ document.addEventListener('DOMContentLoaded', function () {
         return errorMessage;
     }
 });
-
-const password = document.querySelector('input[name=password]');
-const confirmPassword = document.querySelector('input[name=confirm-password]');
-const errorMessage = document.getElementById('confirm-password-error');
-
-password.oninput = () => checkPassword();
-confirmPassword.oninput = () => checkPassword();
-
-// confirm if password matches //
-function checkPassword() {
-    if (password.value != confirmPassword.value) {
-        password.classList.add("invalid");
-        confirmPassword.classList.add("invalid");
-        errorMessage.textContent = "*Passwords do not match";
-    } else {
-        password.classList.remove("invalid");
-        confirmPassword.classList.remove("invalid");
-        errorMessage.textContent = "";
-    }
-}
